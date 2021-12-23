@@ -55,3 +55,32 @@ resource "google_compute_instance" "superset-instance" {
     scopes = ["cloud-platform"]
   }
 }
+
+resource "google_compute_instance" "openmetadata-instance" {
+  name         = "openmetadata-instance"
+  machine_type = "e2-standard-4"
+
+  tags = ["openmetadata"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+      size  = 40
+    }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {
+      network_tier = "PREMIUM"
+    }
+  }
+
+  metadata_startup_script = file("${path.module}/init_scripts/open_metadata.sh")
+
+  service_account {
+    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+    email  = google_service_account.openmetadata-service-account.email
+    scopes = ["cloud-platform"]
+  }
+}
