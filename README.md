@@ -12,5 +12,7 @@ The architecutre contains the following components:
 * Apache Superset
 * OpenMetadata
 
+## Architecture diagram
+
 ![The platform's architecture](platform_architecture.png)
 
