@@ -1,5 +1,5 @@
 provider "google" {
-  project = "poc-dbt-333912"
+  project = "YOUR_PROJECT"
   region = var.region
   zone   = var.zone
 }
