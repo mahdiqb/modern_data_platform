@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: championship_winners
+    description: "Model containing championship winner for each year"
+    columns:
+      - name: driverId
+        description: "Driver ID"
+        tests:
+          - not_null
+      - name: year
+        description: "Championship year"
+        tests:
+          - not_null
+          - unique
+      - name: points_total
+        description: "Points total for the year"
+        tests:
+          - not_null
+      - name: full_name
+        description: "Driver's full name"
+        tests:
+          - not_null
