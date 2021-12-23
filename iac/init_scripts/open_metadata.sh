@@ -18,7 +18,7 @@ sudo wget https://github.com/docker/compose/releases/download/v2.2.2/docker-comp
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-# We install Python and pip
+# We install pip
 sudo apt install -y python3-pip
 
 # We install and start OpenMetadata
